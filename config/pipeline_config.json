@@ -1,0 +1,43 @@
+{
+  "time_col": "transactiontime",
+  "group_cols": ["carduid"],
+
+  "rolling_windows": [5, 10, 20, 30],
+  "rolling_stats": ["count"],
+
+  "lat_col": "lat",
+  "lon_col": "lon",
+
+  "feature_cols": [
+    "count_5",
+    "count_10",
+    "count_20",
+    "count_30",
+    "time_diff_prev",
+    "finalticketprice",
+    "baseticketprice",
+    "ticketscount",
+    "distance_prev",
+    "speed_kmh",
+    "has_coords",
+    "geo_cluster"
+  ],
+
+  "scaler_params": {},
+
+  "encoding_dim": 16,
+  "validation_split": 0.2,
+  "mse_threshold": 0.02,
+
+  "autoencoder": {
+    "hidden_dim": 32,
+    "optimizer": "adam",
+    "loss": "mse",
+    "patience": 5,
+    "lr_factor": 0.5,
+    "lr_patience": 3
+  },
+
+  "min_cluster_size": 10,
+  "min_samples": 5
+}
